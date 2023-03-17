@@ -17,5 +17,3 @@ describe('Inspecting Automation Store items using chain of commands', () => {
         cy.get('.fixed_wrapper').find('.prdocutname').eq(0).click()   // the best for e-commerce approach by the item's INDEX
     });
 });
-
-
