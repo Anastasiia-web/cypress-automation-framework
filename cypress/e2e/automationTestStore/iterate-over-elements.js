@@ -2,7 +2,7 @@
 // /// <reference types="cypress-xpath" />            // as we do not use it here
 
 describe("Iterate over elements", () => {
-  it.only("Log information of all Hair Care products", () => {
+  it("Log information of all Hair Care products", () => {
     cy.visit("https://automationteststore.com/");
     // using part of the url creating dynamic xpath selector by Ranorex Selocity tool
     cy.get("a[href*='product/category&path=']").contains("Hair Care").click();
@@ -25,5 +25,19 @@ describe("Iterate over elements", () => {
         cy.get(".bgnone").should("contain", "Curls to straight Shampoo");
       }
     });
+  });
+
+  it.only("Add first product to basket", () => {
+    cy.visit("https://automationteststore.com/");
+    // using part of the url creating dynamic xpath selector by Ranorex Selocity tool
+    cy.get("a[href*='product/category&path=']").contains("Hair Care").click();
+    cy.get(".fixed_wrapper .prdocutname")
+      .first() // or .eq(0);      = 0 index
+      .then((firstProduct) => {
+        const firstProductName = firstProduct.text();
+        cy.get(firstProduct).click();
+        cy.get(".breadcrumb").should("contain", firstProductName);
+        cy.get(".bgnone").should("contain", firstProductName);
+      });
   });
 });
