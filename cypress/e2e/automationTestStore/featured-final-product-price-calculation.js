@@ -17,10 +17,10 @@ describe("All featured products names & price calculation", () => {
       .invoke("text")
       .as("productPrice");
 
-    cy.get("@productPrice").then(($price) => {
-      cy.log($price); // $29.50$19.00$28.00$38.50
+    cy.get("@productPrice").then((price) => {
+      cy.log(price); // $29.50$19.00$28.00$38.50
       var itemsSum = 0;
-      var itemPrice = $price.split("$");
+      var itemPrice = price.split("$");
 
       var i;
       for (i = 0; i < itemPrice.length; i++) {
