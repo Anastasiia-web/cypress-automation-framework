@@ -4,12 +4,14 @@
   "description": "Cypress Automation Framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "testOnly": "npx cypress run --spec 'cypress/e2e/webdriver-uni/**'",
+    "testOnlyTagged": "cypress run -record --tag hi"
   },
   "author": "Anastasiia Ivashchenko",
   "license": "ISC",
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
-    "cypress": "^12.6.0"
+    "cypress": "^13.6.4"
   }
 }

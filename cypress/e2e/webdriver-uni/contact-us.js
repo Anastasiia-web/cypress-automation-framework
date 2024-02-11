@@ -2,7 +2,7 @@
 /// <reference types="Cypress" />                        // to be able to use cypress commands
 
 describe("Test Contact Us form via WebdriverUni", () => {
-  it("Should be able to submit a successful submission via Contact Us form", () => {
+  it("Should be able to submit a successful submission via Contact Us form", { tags: '@hi' }, () => {
     //cy.visit("http://www.webdriveruniversity.com/Contact-Us/contactus.html");
     cy.visit("http://www.webdriveruniversity.com");
     cy.get("#contact-us").invoke("removeAttr", "target").click({ force: true });
